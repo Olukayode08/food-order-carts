@@ -5,6 +5,8 @@ import { Squash as Hamburger } from 'hamburger-react';
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
+
+  
   return (
     <>
       <section>
@@ -30,7 +32,7 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <div>
+          <div className={active ? 'open-nav' : 'close-nav'}>
             <Hamburger
               toggled={active}
               toggle={setActive}
