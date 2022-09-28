@@ -27,6 +27,7 @@ const Wrapper = styled.section`
 display: flex;
 align-items: center;
 justify-content: center;
+margin: 50px 0;
     .partners{
         display: flex;
         flex-direction: column;
@@ -40,7 +41,6 @@ justify-content: center;
     }
     .orders{
         font-size: 20px;
-        margin-top: 10px;
         color: #959190;
         font-weight: 500;
     }

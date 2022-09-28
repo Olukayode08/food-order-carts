@@ -1,5 +1,4 @@
 import React from 'react'
-import { Routes, Route, Router } from 'react-router-dom';
 import Contact from './components/Contact';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,6 +7,7 @@ import Dishes from './components/Dishes';
 import Testimonials from './components/Testimonials';
 import Stars from './components/Stars';
 import Whyus from './components/Whyus';
+import GetApp from './components/GetApp';
 
 function App() {
   return (
@@ -16,8 +16,9 @@ function App() {
       <Hero />
       <Stars />
       <Whyus />
+      <Dishes/>
       <About />
-      <Dishes />
+      <GetApp />
       <Testimonials />
       <Contact />
     </>
