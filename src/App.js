@@ -6,24 +6,20 @@ import About from './components/About';
 import Navbar from './components/Navbar';
 import Dishes from './components/Dishes';
 import Testimonials from './components/Testimonials';
+import Stars from './components/Stars';
+import Whyus from './components/Whyus';
 
 function App() {
   return (
     <>
-    <Navbar />
-    <Hero />
-    <About />
-    <Dishes />
-    <Testimonials />
-    <Contact />
-      {/* <Routes>
-          <Route path='/' element={<Navbar />} />
-          <Route path='/hero' element={<Hero />} />
-          <Route path='/dishes' element={<Dishes />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/testimonial' element={<Testimonials />} />
-          <Route path='/contact' element={<Contact />} />
-      </Routes> */}
+      <Navbar />
+      <Hero />
+      <Stars />
+      <Whyus />
+      <About />
+      <Dishes />
+      <Testimonials />
+      <Contact />
     </>
   );
 }

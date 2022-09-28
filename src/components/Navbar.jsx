@@ -163,7 +163,7 @@ const Navbar = () => {
 };
 const Wrapper = styled.section`
   position: relative;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
   background-color: #ffe9e0;
   .big-screen {
     display: flex;
@@ -184,6 +184,12 @@ const Wrapper = styled.section`
     padding: 15px;
     color: #000;
     cursor: pointer;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.3s ease-in;
+    :hover{
+      color: #ff4d00;
+    }
   }
   .open-nav {
     position: fixed;

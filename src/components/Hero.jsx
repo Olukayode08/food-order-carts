@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from '../images/FoodImage.webp'
+import { Link } from 'react-scroll';
 const Hero = () => {
   return (
     <>
@@ -15,9 +16,18 @@ const Hero = () => {
                 Helping you enjoy comfortable and healthy food anywhere and
                 anytime on the go
               </p>
-              <a href='#dishes' className='dishes'>
-                Order Now
-              </a>
+              <p>
+                <Link
+                  className='mobile-link'
+                  to='dishes'
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                >
+                  Order now
+                </Link>
+              </p>
             </div>
             <div className='right'>
               <img className='hero-img' src={Image} alt='Essence' />
@@ -30,26 +40,44 @@ const Hero = () => {
 }
 
 const Wrapper = styled.section`
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin: 0 100px;
-.hero{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 150px;
+  font-weight: 400;
+  .hero {
     display: flex;
-}
-  .left,
-  .right{
+  }
+  .left{
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
   }
-  .hero-heading{
-    font-size: 55px;
+  .right{
+    width: 100%;
   }
-  span{
+  .hero-heading {
+    font-size: 50px;
+    font-weight: 400;
+  }
+  span {
     color: #ff4d00;
   }
-`
+  .hero-text {
+    font-size: 20px;
+    margin: 15px 0 20px 0;
+    font-weight: 300;
+  }
+  .mobile-link {
+    text-decoration: none;
+    background-color: #ff4d00;
+    padding: 10px 25px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+`;
 export default Hero
