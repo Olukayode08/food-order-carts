@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import Google from '../images/apple.png';
+import Apple from '../images/download.png';
 import Image from '../images/mobile.webp';
+
 
 
 const GetApp = () => {
@@ -22,6 +25,10 @@ const GetApp = () => {
                 business decisions fast. Whether you have a busy schedule or
                 just enjoy home-cooked food,
               </p>
+              <div className='download'>
+                <img className='apple' src={Google} alt='Homely' />
+                <img className='app' src={Apple} alt='Homely' />
+              </div>
             </div>
             <div className='right'>
               <img className='hero-img' src={Image} alt='Essence' />
@@ -33,7 +40,7 @@ const GetApp = () => {
   );
 }
 const Wrapper = styled.section`
-  margin: 70px 150px;
+  margin: 50px 150px;
   .heading {
     display: flex;
     flex-direction: column;
@@ -54,23 +61,37 @@ const Wrapper = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid green;
+    margin: 50px 0;
   }
   .left {
-    width: 120%;
-    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
   }
   .right {
     width: 100%;
-    border: 1px solid yellow;
-  }
-  img {
-    border: 1px solid yellow;
-    margin-top: 120px;
   }
   .hero-text {
     font-size: 23px;
     font-weight: 300;
+  }
+  .download{
+    display: flex;
+    align-items: flex-start;
+    margin: 15px 0;
+  }
+  .app{
+    width: 37%;
+  }
+  .apple{
+    width: 30%;
+    margin-top: 8px;
+    margin-right: 20px;
+  }
+  .hero-img{
+    width: 100%;
   }
 `;
 export default GetApp
