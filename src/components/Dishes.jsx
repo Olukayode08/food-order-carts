@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import Dish1 from '../images/dish1.webp';
 import Dish2 from '../images/dish2.webp';
 import Dish3 from '../images/dish3.webp';
@@ -8,8 +8,7 @@ import Dish5 from '../images/dish5.webp';
 import Dish6 from '../images/dish6.webp';
 
 const Dishes = () => {
-  const [amount, setAmount] = useState('')
-
+  const [amount, setAmount] = useState('');
 
   return (
     <>
@@ -79,9 +78,9 @@ const Dishes = () => {
       </section>
     </>
   );
-}
+};
 const Wrapper = styled.section`
-  margin: 50px 100px;
+  margin: 50px 0;
   .heading {
     display: flex;
     flex-direction: column;
@@ -98,12 +97,12 @@ const Wrapper = styled.section`
     font-weight: 500;
     margin-top: 10px;
   }
-  .dishes{
+  .dishes {
     display: flex;
     flex-wrap: wrap;
-    margin: 50px 0;
+    margin: 50px 100px;
   }
-  .dish{
+  .dish {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,33 +112,64 @@ const Wrapper = styled.section`
     padding: 20px;
     margin: auto;
   }
-  h3{
+  h3 {
     font-size: 20px;
     margin: 10px 0;
   }
-  .price{
+  .price {
     font-size: 20px;
     font-weight: 600;
   }
-  .cart{
+  .cart {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  input{
+  input {
     width: 55px;
     height: 25px;
     margin-left: 30px;
     border: 1px solid #ff4d0b;
   }
-  button{
+  button {
     background-color: #ff4d0b;
     border: none;
     padding: 10px 30px;
     color: #fff;
     border-radius: 10px;
     font-size: 19px;
-
+  }
+  @media screen and (max-width: 800px) {
+    .dishes {
+      margin: 50px 20px;
+    }
+    .dish {
+      border: none;
+      border-bottom: 1px solid #ff4d0b;
+    }
+    .why-us {
+      text-align: center;
+    }
+    button {
+      padding: 10px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    button {
+      padding: 7px;
+    }
+  }
+  @media screen and (max-width: 300px) {
+    .dishes {
+      margin: 50px 10px;
+    }
+    .dish {
+      width: 260px;
+    }
+    .diff,
+    .why-us {
+      text-align: center;
+    }
   }
 `;
-export default Dishes
+export default Dishes;

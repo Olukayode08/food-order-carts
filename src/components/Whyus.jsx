@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import ImageOne from '../images/testimonial.svg'
+import ImageOne from '../images/testimonial.svg';
 import ImageTwo from '../images/delivery.svg';
 import Image from '../images/FoodImage.webp';
 import ImageThree from '../images/top-food.svg';
-
 
 const Whyus = () => {
   return (
@@ -48,7 +47,7 @@ const Whyus = () => {
 };
 
 const Wrapper = styled.section`
-  margin: 70px 150px;
+  margin: 70px 0;
   .heading {
     display: flex;
     flex-direction: column;
@@ -70,9 +69,9 @@ const Wrapper = styled.section`
     align-items: center;
     justify-content: center;
     background: #ffe9e0;
-    margin: 40px 0;
+    margin: 40px 100px;
   }
-  .easy{
+  .easy {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,13 +81,46 @@ const Wrapper = styled.section`
     height: 400px;
     background-color: #fff;
   }
-  h5{
+  h5 {
     font-size: 24px;
     margin: 10px 0;
   }
-  p{
+  p {
     text-align: center;
     font-size: 17px;
+  }
+
+  @media screen and (max-width: 1300px) {
+    .our-diff {
+      margin: 40px 100px;
+    }
+  }
+  @media screen and (max-width: 1050px) {
+    .our-diff {
+      flex-direction: column;
+      margin: 40px 200px;
+    }
+    .easy {
+      height: 300px;
+    }
+  }
+  @media screen and (max-width: 850px) {
+    .our-diff {
+      flex-direction: column;
+      margin: 40px 90px;
+    }
+    .easy {
+      height: 250px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .our-diff {
+      flex-direction: column;
+      margin: 40px 10px;
+    }
+    .easy {
+      height: 250px;
+    }
   }
 `;
 export default Whyus;

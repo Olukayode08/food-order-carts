@@ -11,7 +11,7 @@ import styled from 'styled-components';
 const Testimonials = () => {
   return (
     <>
-      <section>
+      <section id='testimonial'>
         <Wrapper>
           <div className='heading'>
             <h2 className='why-us'>Testimonials</h2>
@@ -61,8 +61,8 @@ const Testimonials = () => {
                 Enter your Email address to get daily offers and news
               </p>
               <div className='input'>
-                  <input type="email" placeholder='Enter your email' />
-                  <button>Subscribe</button>
+                <input type='email' placeholder='Enter your email' />
+                <button>Subscribe</button>
               </div>
             </div>
           </div>
@@ -86,7 +86,6 @@ const Wrapper = styled.section`
     justify-content: center;
   }
   .why-us {
-    color: #ff4d0b;
     font-size: 40px;
   }
   .diff {
@@ -98,7 +97,8 @@ const Wrapper = styled.section`
   .slider-container {
     width: 500px;
     height: 230px;
-    background-color: #ffe9e0;
+    background-color: rgba(255, 77, 0, 0.6);
+    color: #fff;
     padding: 20px;
     border-radius: 20px;
     margin: 30px 0;
@@ -116,11 +116,12 @@ const Wrapper = styled.section`
   .state {
     font-size: 24px;
     margin: 10px 0;
-    color: #959190;
   }
   .text {
     text-align: center;
     font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
     margin-bottom: 50px;
   }
   .frontNavigate {
@@ -159,7 +160,7 @@ const Wrapper = styled.section`
     height: 50px;
     border: 1px solid #959190;
     margin-right: 10px;
-    outline-color: #ff4d00;
+    outline-color: #140d09;
     border-radius: 10px;
   }
   input::placeholder {
@@ -176,6 +177,62 @@ const Wrapper = styled.section`
     border-radius: 10px;
     font-size: 18px;
     cursor: pointer;
+  }
+  @media screen and (max-width: 1200px) {
+    .backNavigate {
+      left: 10%;
+    }
+    .frontNavigate {
+      right: 10%;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .btn-container {
+      display: none;
+    }
+    .subscribe {
+      margin: 0 20px;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .slider-container {
+      width: 365px;
+      height: 280px;
+    }
+    .why-us {
+      text-align: center;
+      font-size: 37px;
+    }
+    .diff {
+      font-size: 18px;
+    }
+    input {
+      width: 200px;
+    }
+    .diff {
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 370px) {
+    .slider-container {
+      width: 350px;
+      height: 300px;
+    }
+  }
+  @media screen and (max-width: 280px) {
+    .slider-container {
+      width: 270px;
+      height: 300px;
+    }
+    .input {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .why-us {
+      font-size: 30px;
+    }
   }
 `;
 export default Testimonials;

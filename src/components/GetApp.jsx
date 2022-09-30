@@ -11,36 +11,38 @@ const GetApp = () => {
     <>
       <section>
         <Wrapper>
-          <div className='heading'>
-            <h1 className='why-us'>Get our mobile app</h1>
-            <p className='diff'>Enjoy better experience</p>
-          </div>
-          <div className='hero'>
-            <div className='left'>
-              <p className='hero-text'>
-                With our app, you never have to settle for unhealthy, expensive
-                takeaway food again. From spicy noodles to fresh salads, we'll
-                deliver anywhere in your city. Get tasty meals in just 30
-                minutes. It's simple. We make it easy for you to make smart
-                business decisions fast. Whether you have a busy schedule or
-                just enjoy home-cooked food,
-              </p>
-              <div className='download'>
-                <img className='apple' src={Google} alt='Homely' />
-                <img className='app' src={Apple} alt='Homely' />
+          <article>
+            <div className='heading'>
+              <h1 className='why-us'>Get our mobile App</h1>
+              <p className='diff'>Enjoy better experience</p>
+            </div>
+            <div className='hero'>
+              <div className='left'>
+                <p className='hero-text'>
+                  With our app, you never have to settle for unhealthy,
+                  expensive takeaway food again. From spicy noodles to fresh
+                  salads, we'll deliver anywhere in your city. Get tasty meals
+                  in just 30 minutes. It's simple. We make it easy for you to
+                  make smart business decisions fast. Whether you have a busy
+                  schedule or just enjoy home-cooked food,
+                </p>
+                <div className='download'>
+                  <img className='apple' src={Google} alt='Homely' />
+                  <img className='app' src={Apple} alt='Homely' />
+                </div>
+              </div>
+              <div className='right'>
+                <img className='hero-img' src={Image} alt='Essence' />
               </div>
             </div>
-            <div className='right'>
-              <img className='hero-img' src={Image} alt='Essence' />
-            </div>
-          </div>
+          </article>
         </Wrapper>
       </section>
     </>
   );
 }
 const Wrapper = styled.section`
-  margin: 50px 150px;
+  margin: 50px 0px;
   .heading {
     display: flex;
     flex-direction: column;
@@ -61,7 +63,7 @@ const Wrapper = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 50px 0;
+    margin: 50px 150px;
   }
   .left {
     width: 100%;
@@ -76,22 +78,68 @@ const Wrapper = styled.section`
   .hero-text {
     font-size: 23px;
     font-weight: 300;
+    line-height: 30px;
   }
-  .download{
+  .download {
     display: flex;
     align-items: flex-start;
     margin: 15px 0;
   }
-  .app{
+  .app {
     width: 37%;
   }
-  .apple{
+  .apple {
     width: 30%;
     margin-top: 8px;
     margin-right: 20px;
   }
-  .hero-img{
+  .hero-img {
     width: 100%;
+  }
+  @media screen and (max-width: 1200px) {
+    .hero {
+      margin: 50px 120px;
+    }
+  }
+  @media screen and (max-width: 1050px) {
+    .hero {
+      margin: 50px 90px;
+      flex-direction: column;
+    }
+    .left {
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-img {
+      width: 85%;
+      margin: auto;
+    }
+    .right {
+      margin-top: 70px;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .hero {
+      margin: 50px 50px;
+    }
+    .hero-heading {
+      font-size: 36px;
+    }
+    .hero-text {
+      font-size: 20px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .hero {
+      margin: 50px 20px;
+    }
+    .hero-img {
+      width: 100%;
+      margin: auto;
+    }
+    .why-us{
+      text-align: center;
+    }
   }
 `;
 export default GetApp

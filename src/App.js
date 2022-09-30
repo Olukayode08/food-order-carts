@@ -7,7 +7,7 @@ import Dishes from './components/Dishes';
 import About from './components/About';
 import GetApp from './components/GetApp';
 import Testimonials from './components/Testimonials';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <About />
       <GetApp />
       <Testimonials />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
