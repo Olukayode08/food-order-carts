@@ -13,12 +13,18 @@ export const slider = [
   },
   {
     id: 3,
+    name: 'Olukayode Oluwaseun',
+    state: 'Ekiti state',
+    text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, consequuntur sapiente eligendi vero enim recusandae?',
+  },
+  {
+    id: 4,
     name: 'Lara One',
     state: 'Imo state',
     text: 'With a Homely Eats meal, you can serve delectable, home-cooked meals to your family and friends in any location, anytime. anyday!',
   },
   {
-    id: 1,
+    id: 5,
     name: 'Olukayode Azeez',
     state: 'Ogun state',
     text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, consequuntur sapiente eligendi vero enim recusandae?',

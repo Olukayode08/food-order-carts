@@ -322,7 +322,7 @@ const Wrapper = styled.section`
       width: 100%;
       height: 350px;
       background-color: #ffe9e0;
-      transition: all 0.5s ease-in-out;
+      transition: top 0.5s ease-in-out;
     }
     .mobile-links {
       display: flex;
