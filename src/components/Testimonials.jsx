@@ -7,16 +7,54 @@ import 'swiper/css';
 import { slider } from './data';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 import styled from 'styled-components';
+import { LazyMotion, motion } from 'framer-motion';
+
+const headingVariant = {
+  hidden: {
+    y: '50px',
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 0,
+      stiffness: 20,
+    },
+  },
+};
+const textVariant = {
+  hidden: {
+    y: '50px',
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 0,
+      stiffness: 20,
+    },
+  },
+};
 
 const Testimonials = () => {
   return (
     <>
-      <section id='testimonial'>
+      <motion.section
+        id='testimonial'
+        transition={{ staggerChildren: 0.3 }}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: false, amount: 0.1 }}
+      >
         <Wrapper>
-          <div className='heading'>
+          <motion.div variants={headingVariant} className='heading'>
             <h2 className='why-us'>Testimonials</h2>
             <p className='diff'>This is what our client are saying</p>
-          </div>
+          </motion.div>
           <div>
             <div className='slider-container'>
               <Swiper
@@ -36,9 +74,15 @@ const Testimonials = () => {
                   <SwiperSlide key={slide.id}>
                     <div>
                       <article className='slider'>
-                        <h3 className='name'>{slide.name}</h3>
-                        <p className='state'>{slide.state}</p>
-                        <p className='text'>{slide.text}</p>
+                        <motion.h3 variants={textVariant} className='name'>
+                          {slide.name}
+                        </motion.h3>
+                        <motion.p variants={textVariant} className='state'>
+                          {slide.state}
+                        </motion.p>
+                        <motion.p variants={textVariant} className='text'>
+                          {slide.text}
+                        </motion.p>
                       </article>
                     </div>
                   </SwiperSlide>
@@ -55,7 +99,7 @@ const Testimonials = () => {
             </button>
           </div>
           <div className='subscribe'>
-            <div className='heading'>
+            <div variants={headingVariant} className='heading'>
               <h2 className='why-us'>Subscribe to our Newsletter</h2>
               <p className='diff'>
                 Enter your Email address to get daily offers and news
@@ -67,7 +111,7 @@ const Testimonials = () => {
             </div>
           </div>
         </Wrapper>
-      </section>
+      </motion.section>
     </>
   );
 };
@@ -168,6 +212,7 @@ const Wrapper = styled.section`
     color: #959190;
     font-size: 17px;
     padding-left: 15px;
+    gap: 25;
   }
   button {
     background-color: #ff4d00;

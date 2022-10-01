@@ -6,20 +6,60 @@ import Dish3 from '../images/dish3.webp';
 import Dish4 from '../images/dish4.webp';
 import Dish5 from '../images/dish5.webp';
 import Dish6 from '../images/dish6.webp';
+import { motion } from 'framer-motion';
+
+
+const dishVariant = {
+  hidden: {
+    y: '100px',
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 0.1,
+      stiffness: 20,
+    },
+  },
+}
+const dishTwoVariant = {
+  hidden: {
+    scale: 0,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 0.1,
+      stiffness: 20,
+    },
+  },
+};
 
 const Dishes = () => {
   const [amount, setAmount] = useState('');
 
   return (
     <>
-      <section id='dishes'>
+      <motion.section
+        id='dishes'
+        className='hero'
+        transition={{ staggerChildren: 0.3 }}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: false, amount: 0.1 }}
+      >
         <Wrapper>
-          <div className='heading'>
+          <motion.div variants={dishVariant} className='heading'>
             <h1 className='why-us'>Our daily dishes</h1>
             <p className='diff'>Check out recommended dishes of your choice</p>
-          </div>
+          </motion.div>
           <div className='dishes'>
-            <div className='dish'>
+            <motion.div variants={dishVariant} className='dish'>
               <img src={Dish1} alt='Homely' />
               <h3>Yam and egg sauce</h3>
               <div className='cart'>
@@ -27,8 +67,8 @@ const Dishes = () => {
                 <input type='number' />
                 <button>+ Add</button>
               </div>
-            </div>
-            <div className='dish'>
+            </motion.div>
+            <motion.div variants={dishVariant} className='dish'>
               <img src={Dish2} alt='Homely' />
               <h3>Jollof rice and chicken</h3>
               <div className='cart'>
@@ -36,8 +76,8 @@ const Dishes = () => {
                 <input type='number' />
                 <button>+ Add</button>
               </div>
-            </div>
-            <div className='dish'>
+            </motion.div>
+            <motion.div variants={dishVariant} className='dish'>
               <img src={Dish3} alt='Homely' />
               <h3>Porridge beans</h3>
               <div className='cart'>
@@ -45,8 +85,8 @@ const Dishes = () => {
                 <input type='number' />
                 <button>+ Add</button>
               </div>
-            </div>
-            <div className='dish'>
+            </motion.div>
+            <motion.div variants={dishTwoVariant} className='dish'>
               <img src={Dish4} alt='Homely' />
               <h3>Semo and egusi soup</h3>
               <div className='cart'>
@@ -54,8 +94,8 @@ const Dishes = () => {
                 <input type='number' />
                 <button>+ Add</button>
               </div>
-            </div>
-            <div className='dish'>
+            </motion.div>
+            <motion.div variants={dishTwoVariant} className='dish'>
               <img src={Dish5} alt='Homely' />
               <h3>Amala and ewedu soup</h3>
               <div className='cart'>
@@ -63,8 +103,8 @@ const Dishes = () => {
                 <input type='number' />
                 <button>+ Add</button>
               </div>
-            </div>
-            <div className='dish'>
+            </motion.div>
+            <motion.div variants={dishTwoVariant} className='dish'>
               <img src={Dish6} alt='Homely' />
               <h3>Eba and okra soup</h3>
               <div className='cart'>
@@ -72,10 +112,10 @@ const Dishes = () => {
                 <input type='number' placeholder='1' />
                 <button>+ Add</button>
               </div>
-            </div>
+            </motion.div>
           </div>
         </Wrapper>
-      </section>
+      </motion.section>
     </>
   );
 };
@@ -96,6 +136,7 @@ const Wrapper = styled.section`
     color: #959190;
     font-weight: 500;
     margin-top: 10px;
+    text-align: center;
   }
   .dishes {
     display: flex;

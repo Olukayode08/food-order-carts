@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { Squash as Hamburger } from 'hamburger-react';
 import { Link } from 'react-scroll';
 import logo from '../images/logo.svg';
-
+import { motion } from 'framer-motion';
+import { BsCartCheck } from 'react-icons/bs';
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
@@ -11,12 +12,31 @@ const Navbar = () => {
   const toggle = () => {
     setActive(!active);
   };
-
+  const navVariant = {
+    hidden: {
+      y: '-100px',
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        duration: 0.4,
+        stiffness: 20,
+      },
+    },
+  };
   return (
     <>
-      <section>
+      <motion.section
+        transition={{ staggerChildren: 0.3 }}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: true, amount: 0.1 }}
+      >
         <Wrapper>
-          <nav>
+          <motion.nav variants={navVariant}>
             <div className='big-screen'>
               <div>
                 <img className='hero-img' src={logo} alt='Essence' />
@@ -84,14 +104,20 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    className='link'
+                    className='link-cart'
                     to='contact'
                     spy={true}
                     smooth={true}
                     offset={50}
                     duration={500}
                   >
-                    Contact
+                    <div className='cart'>
+                      <p className='cart-img'>
+                        <BsCartCheck />
+                      </p>
+                      <p className='my-cart'>Cart </p>
+                      <p className='amount'>0</p>
+                    </div>
                   </Link>
                 </li>
               </ul>
@@ -176,14 +202,20 @@ const Navbar = () => {
                     offset={50}
                     duration={500}
                   >
-                    Contact
+                    <div className='cart'>
+                      <p className='cart-img'>
+                        <BsCartCheck />
+                      </p>
+                      <p className='my-cart'>Cart </p>
+                      <p className='amount'>0</p>
+                    </div>
                   </Link>
                 </li>
               </ul>
             </div>
-          </nav>
+          </motion.nav>
         </Wrapper>
-      </section>
+      </motion.section>
     </>
   );
 };
@@ -210,27 +242,28 @@ const Wrapper = styled.section`
   .hero-img {
     position: absolute;
     top: 20px;
-    left: 15px;
+    left: 40px;
     z-index: 50;
     align-items: center;
   }
   .links {
     display: flex;
+    align-items: center;
   }
   li {
     list-style: none;
   }
+  .link-cart,
   .link {
     text-decoration: none;
     padding: 15px;
-    color: #959190;
+    color: #000;
     cursor: pointer;
     font-size: 17px;
     font-weight: 600;
-    transition: all 0.3s ease-in;
-    :hover {
-      color: #ff4d00;
-    }
+  }
+  .link:hover {
+    color: #ff4d00;
   }
   .open-nav {
     position: fixed;
@@ -246,6 +279,27 @@ const Wrapper = styled.section`
     right: 15px;
     z-index: 50;
     color: #000;
+  }
+  .cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff4d00;
+    padding: 8px 10px;
+    border-radius: 15px;
+    color: #fff;
+  }
+  .amount {
+    background-color: #fff;
+    color: #000;
+    padding: 4px 7px;
+    border-radius: 10px;
+  }
+  .my-cart {
+    margin: 0 12px;
+  }
+  .cart-img {
+    font-size: 23px;
   }
 
   @media screen and (max-width: 1050px) {
@@ -268,12 +322,14 @@ const Wrapper = styled.section`
       width: 100%;
       height: 350px;
       background-color: #ffe9e0;
+      transition: all 0.5s ease-in-out;
     }
     .mobile-links {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
+      margin: 30px 0 0 60px;
     }
     .mobile-link {
       cursor: pointer;
@@ -288,6 +344,11 @@ const Wrapper = styled.section`
     }
     .big-screen {
       margin: 0 0px;
+    }
+  }
+  @media screen and (max-width: 650px) {
+    .hero-img {
+      left: 10px;
     }
   }
   @media screen and (min-width: 1050px) {

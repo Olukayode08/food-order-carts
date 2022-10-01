@@ -5,17 +5,38 @@ import {GiLoveHowl} from 'react-icons/gi'
 import {BsTwitter} from 'react-icons/bs'
 import {AiOutlineInstagram} from 'react-icons/ai'
 import { ImFacebook } from 'react-icons/im';
+import { motion } from 'framer-motion';
 
 
+const footerVariant = {
+  hidden: {
+    scale: 0,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 0.4,
+      stiffness: 20,
+    },
+  },
+};
 
 const Footer = () => {
   return (
     <>
-      <section>
+      <motion.section
+        transition={{ staggerChildren: 0.3 }}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: false, amount: 0.1 }}
+      >
         <Wrapper>
           <div className='about'>
             <footer>
-              <div className='footer-one'>
+              <motion.div variants={footerVariant} className='footer-one'>
                 <img src={logo} alt='Homely' />
                 <p className='solution'>
                   Solution for easy and flexible getting meals for the
@@ -25,30 +46,30 @@ const Footer = () => {
                   ©2022 Made with <GiLoveHowl className='love' /> by
                   <a href='https://github.com/Olukayode08'> Olukayode</a>
                 </p>
-              </div>
-              <div className='footer'>
+              </motion.div>
+              <motion.div variants={footerVariant} className='footer'>
                 <p className='heading'>About</p>
                 <p className='text'>Our Company</p>
                 <p className='text'>Career</p>
                 <p className='text'>Investor Relations</p>
                 <p className='text'>Social Impact</p>
-              </div>
-              <div className='footer-social'>
+              </motion.div>
+              <motion.div variants={footerVariant} className='footer-social'>
                 <p className='heading'>Social</p>
                 <div className='social-icons'>
                   <AiOutlineInstagram className='social-media' />
                   <BsTwitter className='social-media' />
                   <ImFacebook className='social-media' />
                 </div>
-              </div>
-              <p className='made footer'>
+              </motion.div>
+              <motion.p variants={footerVariant} className='made footer'>
                 ©2022 Made with <GiLoveHowl className='love' /> by
                 <a href='https://github.com/Olukayode08'> Olukayode</a>
-              </p>
+              </motion.p>
             </footer>
           </div>
         </Wrapper>
-      </section>
+      </motion.section>
     </>
   );
 }

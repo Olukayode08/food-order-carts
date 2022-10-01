@@ -1,12 +1,35 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
+const starsVariant = {
+  hidden: {
+    y: '50px',
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 0.3,
+      stiffness: 20,
+    },
+  },
+};
 const Stars = () => {
   return (
     <>
-      <section>
+      <motion.section
+        className='hero'
+        transition={{ staggerChildren: 0.3 }}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: false, amount: 0.1 }}
+      >
         <Wrapper>
-          <article>
+          <motion.article
+          variants={starsVariant}>
             <div className='partners'>
               <h3>500+</h3>
               <p className='orders'>Food partners</p>
@@ -19,12 +42,12 @@ const Stars = () => {
               <h3>12k+</h3>
               <p className='orders'>Clients</p>
             </div>
-          </article>
+          </motion.article>
         </Wrapper>
-      </section>
+      </motion.section>
     </>
   );
-}
+};
 const Wrapper = styled.section`
   article {
     display: flex;
@@ -51,9 +74,9 @@ const Wrapper = styled.section`
     font-weight: 500;
   }
   @media screen and (max-width: 700px) {
-    article{
+    article {
       flex-direction: column;
     }
   }
 `;
-export default Stars
+export default Stars;

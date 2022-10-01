@@ -2,14 +2,53 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from '../images/FoodImage.webp';
 import { Link } from 'react-scroll';
+import { motion } from 'framer-motion';
+
+  const textVariant = {
+    hidden: {
+      x: '-100px',
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        duration: 0.3,
+        stiffness: 20,
+      },
+    },
+  };
+    const imageVariant = {
+      hidden: {
+        x: '100px',
+        opacity: 0,
+      },
+      visible: {
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: 'spring',
+          duration: 0.3,
+          stiffness: 20,
+        },
+      },
+    };
+
 const Hero = () => {
   return (
     <>
       <section>
         <Wrapper>
           <article>
-            <div className='hero'>
-              <div className='left'>
+            <motion.div
+              className='hero'
+              transition={{ staggerChildren: 0.3 }}
+              initial='hidden'
+              whileInView='visible'
+              viewport={{ once: false, amount: 0.1 }}
+            >
+              <motion.div variants={textVariant} className='left'>
                 <h1 className='hero-heading'>
                   Enjoy <span>home made meals</span> far away from home
                 </h1>
@@ -29,11 +68,11 @@ const Hero = () => {
                     Order now
                   </Link>
                 </p>
-              </div>
-              <div className='right'>
+              </motion.div>
+              <motion.div variants={imageVariant} className='right'>
                 <img className='hero-img' src={Image} alt='Essence' />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </article>
         </Wrapper>
       </section>
@@ -42,6 +81,7 @@ const Hero = () => {
 };
 
 const Wrapper = styled.section`
+  overflow-x: hidden;
   article {
     display: flex;
     align-items: center;

@@ -3,21 +3,71 @@ import styled from 'styled-components'
 import Google from '../images/apple.png';
 import Apple from '../images/download.png';
 import Image from '../images/mobile.webp';
+import { motion } from 'framer-motion';
 
-
+const headingVariant = {
+  hidden: {
+    y: '50px',
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 0.3,
+      stiffness: 20,
+    },
+  },
+};
+ const textVariant = {
+    hidden: {
+      x: '-100px',
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        duration: 0.3,
+        stiffness: 20,
+      },
+    },
+  };
+  const imageVariant = {
+    hidden: {
+      x: '100px',
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        duration: 0.3,
+        stiffness: 20,
+      },
+    },
+  };
 
 const GetApp = () => {
   return (
     <>
-      <section>
+      <motion.section
+        transition={{ staggerChildren: 0.3 }}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: false, amount: 0.1 }}
+      >
         <Wrapper>
           <article>
-            <div className='heading'>
+            <motion.div variants={headingVariant} className='heading'>
               <h1 className='why-us'>Get our mobile App</h1>
               <p className='diff'>Enjoy better experience</p>
-            </div>
+            </motion.div>
             <div className='hero'>
-              <div className='left'>
+              <motion.div variants={textVariant} className='left'>
                 <p className='hero-text'>
                   With our app, you never have to settle for unhealthy,
                   expensive takeaway food again. From spicy noodles to fresh
@@ -30,18 +80,19 @@ const GetApp = () => {
                   <img className='apple' src={Google} alt='Homely' />
                   <img className='app' src={Apple} alt='Homely' />
                 </div>
-              </div>
-              <div className='right'>
+              </motion.div>
+              <motion.div variants={imageVariant} className='right'>
                 <img className='hero-img' src={Image} alt='Essence' />
-              </div>
+              </motion.div>
             </div>
           </article>
         </Wrapper>
-      </section>
+      </motion.section>
     </>
   );
 }
 const Wrapper = styled.section`
+  overflow-x: hidden;
   margin: 50px 0px;
   .heading {
     display: flex;
@@ -137,7 +188,7 @@ const Wrapper = styled.section`
       width: 100%;
       margin: auto;
     }
-    .why-us{
+    .why-us {
       text-align: center;
     }
   }
