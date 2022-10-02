@@ -60,7 +60,7 @@ const Navbar = () => {
                     to='choose'
                     spy={true}
                     smooth={true}
-                    offset={50}
+                    offset={-100}
                     duration={500}
                   >
                     Why choose us
@@ -72,7 +72,7 @@ const Navbar = () => {
                     to='dishes'
                     spy={true}
                     smooth={true}
-                    offset={50}
+                    offset={-100}
                     duration={500}
                   >
                     Our Dishes
@@ -84,7 +84,7 @@ const Navbar = () => {
                     to='about'
                     spy={true}
                     smooth={true}
-                    offset={50}
+                    offset={-100}
                     duration={500}
                   >
                     About us
@@ -96,7 +96,7 @@ const Navbar = () => {
                     to='testimonial'
                     spy={true}
                     smooth={true}
-                    offset={50}
+                    offset={-100}
                     duration={500}
                   >
                     Testimonials
@@ -151,7 +151,7 @@ const Navbar = () => {
                     to='choose'
                     spy={true}
                     smooth={true}
-                    offset={50}
+                    offset={-100}
                     duration={500}
                   >
                     Why choose us
@@ -163,7 +163,7 @@ const Navbar = () => {
                     to='dishes'
                     spy={true}
                     smooth={true}
-                    offset={50}
+                    offset={-100}
                     duration={500}
                   >
                     Our Dishes
@@ -175,7 +175,7 @@ const Navbar = () => {
                     to='about'
                     spy={true}
                     smooth={true}
-                    offset={50}
+                    offset={-100}
                     duration={500}
                   >
                     About us
@@ -187,7 +187,7 @@ const Navbar = () => {
                     to='about'
                     spy={true}
                     smooth={true}
-                    offset={50}
+                    offset={-100}
                     duration={500}
                   >
                     Testimonials
@@ -202,7 +202,7 @@ const Navbar = () => {
                     offset={50}
                     duration={500}
                   >
-                    <div className='cart'>
+                    <div className='cart' on>
                       <p className='cart-img'>
                         <BsCartCheck />
                       </p>

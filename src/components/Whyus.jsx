@@ -47,7 +47,7 @@ const Whyus = () => {
         viewport={{ once: false, amount: 0.1 }}>
         <Wrapper>
           <motion.div variants={headingVariant} className='heading'>
-            <h1 className='why-us'>Why choose is</h1>
+            <h1 className='why-us'>Why choose us</h1>
             <p className='diff'>This is what makes our product different</p>
           </motion.div>
           <div className='our-diff'>
